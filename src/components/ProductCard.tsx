@@ -2,6 +2,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Star, ShoppingCart, Heart } from 'lucide-react';
+import { useCart } from '@/contexts/CartContext';
+import { useNavigate } from 'react-router-dom';
 
 interface Product {
   id: number;
@@ -26,7 +28,12 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
   const rating = product.rating || 4.5;
   const reviews = product.reviews || Math.floor(Math.random() * 500) + 50;
   const discount = product.discount || 0;
-
+   const { buyNow } = useCart();        // ✅ use new function
+  const navigate = useNavigate();     
+    const handleBuyNow = () => {
+    buyNow(product);
+    navigate('/checkout');             // ✅ redirect
+  };
   return (
     <Card className="overflow-hidden hover:shadow-warm transition-smooth group bg-card border">
       <div className="relative overflow-hidden">
@@ -113,7 +120,7 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
             <ShoppingCart className="w-4 h-4 mr-2" />
             Add to Cart
           </Button>
-          <Button variant="outline" className="w-full text-xs">
+          <Button variant="outline" className="w-full text-xs" onClick={handleBuyNow}>
             Buy Now
           </Button>
         </div>

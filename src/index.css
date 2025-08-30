@@ -5,6 +5,41 @@
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
+@media print {
+  body {
+    color: black !important;
+    background: white !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-visible {
+    display: block !important;
+    color: black !important;
+  }
+
+  /* Override muted text so it shows up clearly */
+  .text-muted-foreground {
+    color: black !important;
+  }
+
+  /* Ensure backgrounds don’t erase content */
+  .bg-muted,
+  .bg-muted\/50,
+  .bg-background,
+  .bg-card {
+    background: white !important;
+  }
+
+  /* Force borders visible */
+  .border,
+  .border-border {
+    border-color: black !important;
+  }
+}
+
 
 @layer base {
   :root {
@@ -127,7 +162,22 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }

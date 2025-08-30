@@ -6,8 +6,10 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { ShoppingCart, Plus, Minus, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 const FloatingCartPreview = () => {
+    const navigate = useNavigate()
   const { state, updateQuantity, removeItem, getItemCount } = useCart();
   const [isExpanded, setIsExpanded] = useState(true);
 
@@ -23,6 +25,14 @@ const FloatingCartPreview = () => {
     return Math.floor(calculateTotal() * 0.15);
   };
 
+ const handleProceedToBuy = () => {
+    if (getItemCount() === 0) return;
+  //    if (!user) {
+  //   navigate(`/login?redirect=${encodeURIComponent("/checkout")}`);
+  //   return;
+  // }
+       navigate("/checkout"); 
+  };
   // Mobile: Floating Cart Icon
   const MobileCartIcon = () => (
     <Sheet>
@@ -163,7 +173,8 @@ const FloatingCartPreview = () => {
         
         {/* Action Buttons */}
         <div className="space-y-2 pt-2">
-          <Button className="w-full bg-gradient-orange hover:bg-amazon-orange text-white font-semibold">
+          <Button className="w-full bg-gradient-orange hover:bg-amazon-orange text-white font-semibold"  onClick={handleProceedToBuy} // ⬅️ go to checkout
+            disabled={getItemCount() === 0}>
             Proceed to Buy ({getItemCount()})
           </Button>
           <Button variant="outline" className="w-full">

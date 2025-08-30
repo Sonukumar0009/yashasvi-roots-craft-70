@@ -64,12 +64,18 @@ interface CartContextType {
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;
   getItemCount: () => number;
+  buyNow: (item: Omit<CartItem, 'quantity'>) => void;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, { items: [], total: 0 });
+const buyNow = (item: Omit<CartItem, 'quantity'>) => {
+  // clear current cart and set only this one item
+  dispatch({ type: 'CLEAR_CART' });
+  dispatch({ type: 'ADD_ITEM', payload: item });
+};
 
   // Load cart from localStorage on mount
   useEffect(() => {
@@ -116,7 +122,8 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       removeItem,
       updateQuantity,
       clearCart,
-      getItemCount
+      getItemCount,
+       buyNow  
     }}>
       {children}
     </CartContext.Provider>

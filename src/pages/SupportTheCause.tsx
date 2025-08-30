@@ -1,7 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Heart, HandHeart, Users, Building, Coins, Clock, BookOpen, Hammer } from "lucide-react";
+import { Heart, Users, Building, Clock, BookOpen, Hammer } from "lucide-react";
 
 const SupportTheCause = () => {
   const volunteerOpportunities = [
@@ -35,24 +35,6 @@ const SupportTheCause = () => {
     }
   ];
 
-  const donationImpacts = [
-    {
-      amount: "₹500",
-      impact: "Provides training materials for 1 artisan for a month"
-    },
-    {
-      amount: "₹2,000",
-      impact: "Sponsors legal documentation support for 1 farmer"
-    },
-    {
-      amount: "₹5,000",
-      impact: "Funds a complete awareness workshop in a village"
-    },
-    {
-      amount: "₹10,000",
-      impact: "Supports tool kit for 5 new artisan trainees"
-    }
-  ];
 
   const partnerships = [
     {
@@ -133,42 +115,6 @@ const SupportTheCause = () => {
           </div>
         </section>
 
-        {/* Donation Section */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Support Through Donations</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Your financial support directly helps farmers and rural craftsmen build sustainable livelihoods
-            </p>
-          </div>
-
-          <div className="bg-gradient-warm rounded-lg p-8 md:p-12 mb-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {donationImpacts.map((item, index) => (
-                <div key={index} className="text-center p-6 bg-background/60 rounded-lg">
-                  <div className="text-2xl font-bold text-accent mb-2">{item.amount}</div>
-                  <p className="text-sm text-muted-foreground">{item.impact}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                <Coins className="w-5 h-5 mr-2" />
-                Donate Now
-              </Button>
-              <Button variant="outline" size="lg">
-                <HandHeart className="w-5 h-5 mr-2" />
-                Monthly Giving
-              </Button>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              All donations are tax-exempt under Section 80G. We provide proper receipts for all contributions.
-            </p>
-          </div>
-        </section>
 
         {/* Partnership Opportunities */}
         <section className="mb-20">
@@ -214,7 +160,7 @@ const SupportTheCause = () => {
             Ready to Make a Difference?
           </h2>
           <p className="text-xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Whether through volunteering, donations, or partnerships, your involvement helps preserve Karnataka's sandalwood heritage while empowering rural communities.
+            Whether through volunteering or partnerships, your involvement helps preserve Karnataka's sandalwood heritage while empowering rural communities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" className="bg-white/20 backdrop-blur-sm border border-orange-300/50 text-orange-300 hover:bg-orange-100/30 hover:text-orange-200 shadow-lg shadow-orange-300/40 hover:shadow-orange-300/60">

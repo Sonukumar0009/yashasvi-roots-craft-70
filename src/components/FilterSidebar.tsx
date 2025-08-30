@@ -41,7 +41,34 @@ const FilterSidebar = ({
     "Jewelry & Accessories", 
     "Wellness & Aromatherapy", 
     "Spiritual Items", 
-    "Pooja Items"
+    "Pooja Items",
+    "Art & Portraits",
+    "Wildlife Art",
+    "Wall Art",
+    "Luxury Accessories",
+    "Religious Art",
+    "Furniture",
+    "Home Décor",
+    "Games & Recreation",
+    "Patriotic Art",
+    "Jewelry Storage",
+    "Office & Legal",
+    "Bookmarks & Stationery",
+    "Architectural Models",
+    "Storage Solutions",
+    "Historical Portraits",
+    "Perfume Accessories",
+    "Candle Diffusers",
+    "Cigar Accessories",
+    "Watch Storage",
+    "Wedding Gifts",
+    "Musical Instruments",
+    "Astrology & Zodiac",
+    "Globe Collection",
+    "Temple Curtains",
+    "Awards & Trophies",
+    "Fashion Accessories",
+    "Kitchen & Dining"
   ];
 
   const materials = ["Pure Sandalwood", "Mixed Wood", "Essential Oil", "Incense"];
@@ -205,12 +232,12 @@ const FilterSidebar = ({
             {[4, 3, 2, 1].map((rating) => (
               <div key={rating} className="flex items-center space-x-2">
                 <Checkbox
-                  id={`rating-${rating}`}
+                 id={`rating-${rating}`}
                   checked={minRating <= rating}
                   onCheckedChange={() => onRatingChange(rating)}
                 />
                 <label
-                  htmlFor={`rating-${rating}`}
+htmlFor={`rating-${rating}`}
                   className="text-sm text-muted-foreground cursor-pointer hover:text-foreground transition-smooth flex items-center"
                 >
                   <div className="flex items-center mr-1">

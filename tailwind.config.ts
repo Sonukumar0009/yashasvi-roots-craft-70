@@ -131,11 +131,20 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-orange': {
+					'0%, 100%': {
+						color: 'hsl(var(--foreground))'
+					},
+					'50%': {
+						color: 'hsl(24 100% 50%)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-orange': 'pulse-orange 1.5s ease-in-out infinite'
 			}
 		}
 	},

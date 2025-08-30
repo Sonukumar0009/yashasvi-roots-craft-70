@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, User, ShoppingCart, BookOpen, Sparkles, Calendar, Store, Users, Heart, Mail } from "lucide-react";
+import { Menu, X, User, ShoppingCart, BookOpen, Sparkles, Calendar, Store, Users, Heart, Mail, Camera } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { CartSheet } from "@/components/Cart";
@@ -13,6 +13,7 @@ const Navigation = () => {
     { name: "Significance & Usage", href: "/significance", icon: Sparkles },
     { name: "Annual Campaigns", href: "/annual-campaigns", icon: Calendar },
     { name: "Our Store", href: "/products", icon: Store },
+    { name: "Portfolio", href: "/portfolio", icon: Camera },
     { name: "Events", href: "/events", icon: Users },
     { name: "Support the Cause", href: "/support", icon: Heart },
     { name: "Contact", href: "/contact", icon: Mail },
@@ -61,11 +62,6 @@ const Navigation = () => {
                   Login
                 </Button>
               </Link>
-              <Link to="/donate">
-                <Button size="sm" className="bg-accent hover:bg-accent/90">
-                  Donate
-                </Button>
-              </Link>
             </div>
           </div>
 
@@ -111,11 +107,6 @@ const Navigation = () => {
                   <Button variant="outline" className="w-full justify-start">
                     <User className="w-4 h-4 mr-2" />
                     Login
-                  </Button>
-                </Link>
-                <Link to="/donate" onClick={() => setIsOpen(false)}>
-                  <Button className="w-full justify-start bg-accent hover:bg-accent/90">
-                    Donate
                   </Button>
                 </Link>
               </div>
